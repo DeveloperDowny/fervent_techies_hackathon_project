@@ -43,7 +43,7 @@ public class ApplicationListenerService extends AccessibilityService {
         // } else {
         // Log.d("obscure_tag", "battery optimization permission is not a problem");
         // }
-        if (!currentPackage.equals("com.android.systemui")) {
+        if (!currentPackage.equals("com.android.systemui") && !currentPackage.equals("com.conquer_app")) {
 
             if (isBrowserRunning(currentPackage)) {
 //                Log.d("obscure_tag", "browser is running");
@@ -103,7 +103,7 @@ public class ApplicationListenerService extends AccessibilityService {
                         PendingIntent alarmIntent = PendingIntent.getBroadcast(this, 1, intent, 0);
                         long timeMilli = new Date().getTime();
                         alarmMgr.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP,
-                                timeMilli,
+                                timeMilli + 60000,
                                 alarmIntent);
 
                     }

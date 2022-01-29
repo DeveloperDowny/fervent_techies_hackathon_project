@@ -45,7 +45,7 @@ const Main = () => {
             ),
           }}
         />
-        <Tab.Screen
+        {/* <Tab.Screen
           name="Tasks"
           component={Tasks}
           options={{
@@ -60,7 +60,7 @@ const Main = () => {
               </View>
             ),
           }}
-        />
+        /> */}
         <Tab.Screen
           name="Settings"
           component={Settings}

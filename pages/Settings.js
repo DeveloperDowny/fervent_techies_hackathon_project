@@ -9,6 +9,7 @@ import Ripple from 'react-native-material-ripple';
 import AppsSelectorModal from '../Components/AppsSelectorModal';
 import AntDesignIcon from '../customIcons/AntDesignIcon';
 import WebsitesSelectorModal from '../Components/WebsitesSelectorModal';
+import NotificationTextSelectorModal from '../Components/NotificationTextSelectorModal';
 
 const Settings = () => {
   const [confirmationModalVisible, setConfirmationModalVisible] =
@@ -40,15 +41,22 @@ const Settings = () => {
 
   const [websitesSelectorModalVisible, setWebsitesSelectorModalVisible] =
     useState(false);
+  const [
+    notificationTextSelectorModalVisible,
+    setNotificationTextSelectorModalVisible,
+  ] = useState(false);
 
   const saveBlacklistedApps = () => {
     InstalledApplicationsFetcher.saveNudgerApps(blacklistedApps.toString());
     setAppsSelectorModalVisible(false);
   };
   const saveBlacklistedWebsites = websites => {
-    console.log('this is what is getting stored in nudger:', websites);
     InstalledApplicationsFetcher.saveNudgerWebsites(websites);
     setWebsitesSelectorModalVisible(false);
+  };
+  const saveNotificationText = text => {
+    InstalledApplicationsFetcher.saveNudgerNotificationText(text);
+    setNotificationTextSelectorModalVisible(false);
   };
 
   return (
@@ -104,6 +112,27 @@ const Settings = () => {
             />
           </View>
         </Ripple>
+        <Ripple
+          rippleDuration={300}
+          rippleColor="#ffffff"
+          onPress={() => setNotificationTextSelectorModalVisible(true)}
+          rippleContainerBorderRadius={5}>
+          <View style={styles.blackListedContainer}>
+            <Text style={styles.blackListedText}>Notification Text</Text>
+            <AntDesignIcon
+              iconName="caretdown"
+              iconColor="#ffffff"
+              iconSize={13}
+            />
+            <NotificationTextSelectorModal
+              modalVisible={notificationTextSelectorModalVisible}
+              saveText={text => {
+                saveNotificationText(text);
+              }}
+              goBack={() => setNotificationTextSelectorModalVisible(false)}
+            />
+          </View>
+        </Ripple>
       </View>
     </View>
   );
@@ -116,7 +145,7 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'column',
     // backgroundColor: '#000000',
-    justifyContent: 'space-around',
+    justifyContent: 'flex-start',
     padding: 10,
     width: '100%',
     height: '100%',

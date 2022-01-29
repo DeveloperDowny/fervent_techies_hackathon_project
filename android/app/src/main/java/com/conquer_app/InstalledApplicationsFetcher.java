@@ -155,4 +155,15 @@ public class InstalledApplicationsFetcher extends ReactContextBaseJavaModule {
         editor.apply();
 
     }
+
+    @ReactMethod
+    public void saveNudgerNotificationText(String text) {
+
+        SharedPreferences sharedPref = getReactApplicationContext().getSharedPreferences(
+                "ApplicationListener", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPref.edit();
+        editor.putString("notification_text", text);
+        editor.apply();
+
+    }
 }

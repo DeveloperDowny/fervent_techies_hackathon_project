@@ -28,7 +28,9 @@ public class AlarmReceiver extends BroadcastReceiver {
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context, channel_id)
                 .setSmallIcon(R.drawable.notification_icon)
                 .setContentTitle(title)
-                .setContentText(content)
+//                .setContentText("You have important stuff to do!")
+                .setStyle(new NotificationCompat.BigTextStyle()
+                        .bigText(content))
                 .setPriority(priority);
         return builder;
     }
@@ -50,12 +52,13 @@ public class AlarmReceiver extends BroadcastReceiver {
                 "ApplicationListener", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPref.edit();
         String storedPackage = sharedPref.getString("current_running_application", "none");
+        String notification_text = sharedPref.getString("notification_text", "");
 
         if (!storedPackage.equals("none")) {
 
             NotificationManagerCompat notificationManager = NotificationManagerCompat.from(context);
             notificationManager.notify(0,
-                    createNotification(context, "Shit task", "this task is incomplete", "task_reminders", 4).build());
+                    createNotification(context, "You have important stuff to do!", notification_text, "task_reminders", 4).build());
 
             AlarmManager alarmMgr = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
             Intent intent = new Intent(context, AlarmReceiver.class);
