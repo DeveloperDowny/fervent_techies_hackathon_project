@@ -69,11 +69,11 @@ public class MainActivity extends ReactActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(null);
-        // createNotificationChannel("task_reminders", "Task Reminders",
-        //         "This channel handles all notifications regarding task reminders", NotificationManager.IMPORTANCE_MAX);
-        // createNotificationChannel("foreground_services", "Foreground Service",
-        //         "This channel handles that annoying notifications which can't be turned off due to some fucking Android Policy",
-        //         NotificationManager.IMPORTANCE_NONE);
+         createNotificationChannel("task_reminders", "Task Reminders",
+                 "This channel handles all notifications regarding task reminders", NotificationManager.IMPORTANCE_MAX);
+         createNotificationChannel("foreground_services", "Foreground Service",
+                 "This channel handles that annoying notifications which can't be turned off due to some fucking Android Policy",
+                 NotificationManager.IMPORTANCE_NONE);
 
         Log.d("obscure_tag", "application has started!");
 

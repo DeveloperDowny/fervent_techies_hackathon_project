@@ -46,22 +46,6 @@ const Main = () => {
           }}
         />
         <Tab.Screen
-          name="Settings"
-          component={Settings}
-          options={{
-            headerShown: false,
-            tabBarIcon: ({focused}) => (
-              <View style={{alignItems: 'center', justifyContent: 'center'}}>
-                <IonIcon
-                  iconName="settings"
-                  iconColor={focused ? '#ffffff' : '000000'}
-                  iconSize={25}
-                />
-              </View>
-            ),
-          }}
-        />
-        <Tab.Screen
           name="Tasks"
           component={Tasks}
           options={{
@@ -70,6 +54,22 @@ const Main = () => {
               <View style={{alignItems: 'center', justifyContent: 'center'}}>
                 <FontAwesomeIcon
                   iconName="tasks"
+                  iconColor={focused ? '#ffffff' : '000000'}
+                  iconSize={25}
+                />
+              </View>
+            ),
+          }}
+        />
+        <Tab.Screen
+          name="Settings"
+          component={Settings}
+          options={{
+            headerShown: false,
+            tabBarIcon: ({focused}) => (
+              <View style={{alignItems: 'center', justifyContent: 'center'}}>
+                <IonIcon
+                  iconName="settings"
                   iconColor={focused ? '#ffffff' : '000000'}
                   iconSize={25}
                 />
