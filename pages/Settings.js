@@ -76,7 +76,7 @@ const Settings = () => {
           rippleContainerBorderRadius={5}
           onPress={() => setAppsSelectorModalVisible(true)}>
           <View style={styles.blackListedContainer}>
-            <Text style={styles.blackListedText}>Blacklisted Apps</Text>
+            <Text style={styles.blackListedText}>Blacklist Apps</Text>
             <AntDesignIcon
               iconName="caretdown"
               iconColor="#ffffff"
@@ -97,7 +97,7 @@ const Settings = () => {
           onPress={() => setWebsitesSelectorModalVisible(true)}
           rippleContainerBorderRadius={5}>
           <View style={styles.blackListedContainer}>
-            <Text style={styles.blackListedText}>Blacklisted Websites</Text>
+            <Text style={styles.blackListedText}>Blacklist Websites</Text>
             <AntDesignIcon
               iconName="caretdown"
               iconColor="#ffffff"
@@ -145,7 +145,8 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'column',
     // backgroundColor: '#000000',
-    justifyContent: 'flex-start',
+    justifyContent: 'center',
+    alignItems: 'center',
     padding: 10,
     width: '100%',
     height: '100%',
@@ -154,6 +155,8 @@ const styles = StyleSheet.create({
     padding: 10,
     display: 'flex',
     flexDirection: 'row',
+    marginTop: 20,
+    marginBottom: 20,
     alignItems: 'center',
   },
   blackListedText: {

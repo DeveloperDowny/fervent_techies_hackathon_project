@@ -7,7 +7,6 @@ import {
   ImageBackground,
   BackHandler,
 } from 'react-native';
-import Navbar from '../Components/Navbar';
 import globalStyles from '../globalStyles';
 
 const Landing = ({navigation}) => {
@@ -26,14 +25,15 @@ const Landing = ({navigation}) => {
       <ImageBackground
         source={require('../resources/images/Conquerbackground.png')}
         style={styles.backgroundImage}>
-        <Navbar page="Landing" />
         <View style={styles.mainContent}>
+          <Text style={styles.topLine}> Hey,{'\n'} I am Nudger.</Text>
           <Text style={styles.tagLine}>
-            Hey,{'\n'} I am Nudger.{'\n'}   I am gonna make you productive af
+            {'\n'} My job is to increase your productivity by keeping you away
+            from apps and websites which distract you !
           </Text>
           <TouchableOpacity
             style={styles.getStartedBut}
-            onPress={() => navigation.navigate('Login')}>
+            onPress={() => navigation.navigate('Settings')}>
             <Text style={styles.getStartedButText}>Get Started</Text>
           </TouchableOpacity>
         </View>
@@ -55,6 +55,13 @@ const styles = StyleSheet.create({
     position: 'absolute',
     left: -150,
   },
+  topLine: {
+    fontFamily: 'Poppins-Medium',
+    color: '#ffffff',
+    fontSize: 26,
+    width: 400,
+    textAlign: 'center',
+  },
   mainContent: {
     // backgroundColor: "#000000",
     flex: 0.6,
@@ -65,9 +72,9 @@ const styles = StyleSheet.create({
   },
   tagLine: {
     fontFamily: 'Poppins-Medium',
-    color: '#ffffff',
-    fontSize: 24,
-    width:400,
+    color: 'rgba(255,255,255,0.8)',
+    fontSize: 21,
+    width: 400,
     textAlign: 'center',
   },
   getStartedBut: {
